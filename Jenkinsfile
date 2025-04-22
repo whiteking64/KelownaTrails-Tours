@@ -1,10 +1,13 @@
 pipeline {
     agent any
 
+    environment {
+        FIREBASE_DEPLOY_TOKEN = credentials('firebase-token')
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo 'Installing dependencies (if any)...'
                 sh 'echo "No build steps needed for static project."'
             }
         }
@@ -18,8 +21,7 @@ pipeline {
         stage('Staging') {
             steps {
                 echo 'Deploying to STAGING Firebase project...'
-                sh 'firebase use staging'
-                sh 'firebase deploy --only hosting'
+                sh 'firebase deploy --only hosting -P staging --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
 
@@ -29,8 +31,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying to PRODUCTION Firebase project...'
-                sh 'firebase use production'
-                sh 'firebase deploy --only hosting'
+                sh 'firebase deploy --only hosting -P production --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
     }
