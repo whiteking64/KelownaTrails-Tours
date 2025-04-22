@@ -7,9 +7,6 @@
       "hosting": {
         "staging": [
           "kelowna-trails-tours-staging"
-        ],
-        "production": [
-          "kelowna-trails-tours-prod"
         ]
       }
     },

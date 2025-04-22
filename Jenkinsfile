@@ -21,7 +21,7 @@ pipeline {
         stage('Staging') {
             steps {
                 echo 'Deploying to STAGING Firebase project...'
-                sh 'firebase deploy --only hosting --site kelowna-trails-tours-staging --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh 'firebase deploy --only hosting -P staging --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying to PRODUCTION Firebase project...'
-                sh 'firebase deploy --only hosting --site kelowna-trails-tours-prod --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh 'firebase deploy --only hosting -P production --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
     }
