@@ -26,12 +26,6 @@ pipeline {
         }
 
         stage('Production') {
-            when {
-                expression {
-                    def branchName = sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim()
-                    return branchName == "main"
-                }
-            }
             steps {
                 echo 'Deploying to PRODUCTION Firebase project...'
                 sh 'firebase deploy --only hosting --project kelowna-trails-tours-prod --token "$FIREBASE_DEPLOY_TOKEN"'
