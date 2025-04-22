@@ -27,7 +27,10 @@ pipeline {
 
         stage('Production') {
             when {
-                branch 'main'
+                expression {
+                    def branchName = sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim()
+                    return branchName == "main"
+                }
             }
             steps {
                 echo 'Deploying to PRODUCTION Firebase project...'
