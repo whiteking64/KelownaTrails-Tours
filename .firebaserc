@@ -5,14 +5,21 @@
   "targets": {
     "kelowna-trails-tours-staging": {
       "hosting": {
-        "staging": ["staging"]
+        "staging": [
+          "kelowna-trails-tours-staging"
+        ],
+        "production": [
+          "kelowna-trails-tours-prod"
+        ]
       }
     },
     "kelowna-trails-tours-prod": {
       "hosting": {
-        "production": ["production"]
+        "production": [
+          "kelowna-trails-tours-prod"
+        ]
       }
     }
-  }
+  },
+  "etags": {}
 }
-
