@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "kelowna-trails-tours-staging"
+  },
+  "targets": {
+    "kelowna-trails-tours-staging": {
+      "hosting": {
+        "staging": ["staging"]
+      }
+    },
+    "kelowna-trails-tours-prod": {
+      "hosting": {
+        "production": ["production"]
+      }
+    }
+  }
+}
+
